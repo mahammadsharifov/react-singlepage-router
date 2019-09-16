@@ -1,0 +1,85 @@
+
+$bgcolor1 : dimgray;
+$fontcolor1: #bbb;
+$fontcolor2: black;
+$bgcolor2: tomato;
+
+.App {
+    text-align: left;
+    font-size: 18px;
+    height: 100vh;
+    padding: 50px;
+    background-color: $bgcolor1; 
+    color: $fontcolor1;
+    display: flex;
+    flex-direction: row;
+  }
+  span{
+      background-color: $bgcolor2;
+      padding: 0px 2px;
+      margin-right: 8px;
+  }
+
+  .leftcol{
+    flex: 0 0 20vw;
+
+    nav{
+        ul{
+            list-style-type: none;
+            padding-left: 0 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        a{
+            color: $fontcolor1;
+            text-decoration: none;
+        }
+        li{
+            padding: 10px 10px;
+            border-bottom: 1px dotted $fontcolor1;
+            transition: 2s all;
+        }
+        li:nth-last-child(){
+            border-bottom: none !important;
+        }
+        li:hover{
+            color: $bgcolor2;
+            background-color: $fontcolor1;
+            padding-left: 40px;
+            transition: 2s all;
+        }
+    }
+}
+
+.rightcol{
+    line-height: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin-left: 50px;
+
+    @keyframes sliding {
+        from {left: -400px; opacity: 0}
+        to {left: 0px; opacity: 1}
+      }
+    
+    div{
+        position: absolute;
+        left: 0px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        animation-name: sliding;
+        animation-duration: 2s;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .App {
+      flex-direction: column;
+    }
+    .rightcol{
+        margin-left: 0px;
+    }
+}
